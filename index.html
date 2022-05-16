@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="img/ufrgs.png">
+
+    <title>PPG - UFRGS</title>
+</head>
+
+<body>
+    <section class="ppg-component">
+        <div class="ppg-component__content">
+            <header class="ppg-component__header">
+                <div class="header__title">
+                    <svg role="img" title="Disciplinas" class="header__title--icon">
+                        <use href="icons/icon-sheet.svg#class" />
+                    </svg>
+                    <h2 class="heading-secondary">Título</h2>
+                </div>
+                <div class="header__filter">
+                    <div class="header__filter--holder">
+                        <input type="text" id="header__filter--general"
+                            class="header__filter--text ppg-component__filter--general" />
+                        <label for="header__filter--general" class="header__filter--label">Filtrar</label>
+                        <a class="header__filter--search-link" href="#">
+                            <svg role="img" title="Search" class="header__filter--icon">
+                                <use href="icons/icon-sheet.svg#search" />
+                            </svg>
+                        </a>
+                    </div>
+                    <ul class="header__filter--list">
+                        <li class="header__filter--item header__filter--holder">
+                            <input type="text" class="header__filter--text" placeholder="Filtro 1"
+                                id="header__filter--1" />
+                            <label for="header__filter--1" class="header__filter--label">Filtro 1</label>
+                            <a class="header__filter--search-link" href="#">
+                                <svg role="img" title="Search" class="header__filter--icon">
+                                    <use href="icons/icon-sheet.svg#search" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="header__filter--item header__filter--holder">
+                            <input type="text" class="header__filter--text" placeholder="Filtro 2"
+                                id="header__filter--2" />
+                            <label for="header__filter--2" class="header__filter--label">Filtro 2</label>
+                            <a class="header__filter--search-link" href="#">
+                                <svg role="img" title="Search" class="header__filter--icon">
+                                    <use href="icons/icon-sheet.svg#search" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="header__filter--item header__filter--holder">
+                            <input type="text" class="header__filter--text" placeholder="Filtro 3"
+                                id="header__filter--3" />
+                            <label for="header__filter--3" class="header__filter--label">Filtro 3</label>
+                            <a class="header__filter--search-link" href="#">
+                                <svg role="img" title="Search" class="header__filter--icon">
+                                    <use href="icons/icon-sheet.svg#search" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <img class="header__logo--img" src="img/ufrgs.png" alt="UFRGS">
+            </header>
+            <aside class="ppg-component__details">
+                <h3 class="ppg-component__details--title">Título</h3>
+                <ul class="ppg-component__details--list">
+                    <li class="ppg-component__details--item">
+                        <span class="ppg-component__details--item--title">Título</span>
+                        <span class="ppg-component__details--item--value">Valor</span>
+                    </li>
+                    <li class="ppg-component__details--item">
+                        <span class="ppg-component__details--item--title">Título</span>
+                        <span class="ppg-component__details--item--value">Valor</span>
+                    </li>
+                    <li class="ppg-component__details--item">
+                        <span class="ppg-component__details--item--title">Título</span>
+                        <span class="ppg-component__details--item--value">Valor</span>
+                    </li>
+                    <li class="ppg-component__details--item">
+                        <span class="ppg-component__details--item--title">Título</span>
+                        <span class="ppg-component__details--item--value">Valor</span>
+                    </li>
+                </ul>
+
+            </aside>
+        </div>
+    </section>
+    <script src="js/svg4everybody.min.js"></script>
+    <script defer>svg4everybody(); // run it now or whenever you are ready</script>
+</body>
+
+</html>
