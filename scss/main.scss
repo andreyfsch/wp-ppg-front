@@ -1,3 +1,9 @@
-@import "base";
-@import "layout";
-@import "components";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+
+@import "layout/layout";
+@import "layout/header";
+
+@import "components/ppg-component";
