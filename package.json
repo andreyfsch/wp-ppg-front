@@ -4,7 +4,7 @@
   "description": "WordPress plugin for PPG UFRFGS",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "nodemon -e scss -x \"npm run build:css\"",
+    "watch:sass": "nodemon -e scss -x \"node-sass scss/main.scss css/style.css -w\"",
     "files.autoSave": "onFocusChange",
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
