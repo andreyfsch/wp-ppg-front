@@ -1,6 +1,6 @@
 .ppg-component {
     background: #0f2027;
-    background-image: linear-gradient(to right bottom, #0f2027, #203a43, #2c5364);
+    background-image: linear-gradient(to right bottom, var(--color-blue-gradient-dark), var(--color-blue-gradient-mid), var(--color-blue-gradient-light));
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -29,6 +29,6 @@
     }
 
     &__details {
-        display: grid;
+        display: none;
     }
 }

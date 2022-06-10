@@ -4,8 +4,7 @@
   "description": "Generate svg icon sprite for WP plugin PPG UFRGS",
   "main": "index.js",
   "scripts": {
-    "generate:sprite": "node node_modules/svg-icon-sprite/scripts/cli.js --folder=/mnt/c/Users/andre/Documents/wp-ppg-front/icons/svg/ --output=/mnt/c/Users/andre/Documents/wp-ppg-front/icons/svg/icon-sheet.svg",
-    "devserver": "live-server"
+    "generate:sprite": "node node_modules/svg-icon-sprite/scripts/cli.js --folder=/mnt/c/Users/andrey/Documents/wp-ppg-front/icons/svg/ --output=/mnt/c/Users/andrey/Documents/wp-ppg-front/icons/svg/icon-sheet.svg"
   },
   "author": "Andrey",
   "license": "ISC",
