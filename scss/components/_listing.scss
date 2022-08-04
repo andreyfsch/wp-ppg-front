@@ -1,0 +1,39 @@
+.ppg-ufrgs-wp{
+    &__listing {
+        &__item {
+            display: flex;
+            justify-content: stretch;
+            align-content: stretch;
+        }
+
+        &__item__rdo {
+            display: none;
+            &:checked + .ppg-ufrgs-wp__listing__item__label {
+                transform: translateY(-.45rem);
+                box-shadow: var(--shadow-mid);
+                border: 3px solid var(--color-blue-gradient-light);
+            }
+
+            &:checked + .ppg-ufrgs-wp__listing__item__label:hover {
+                transform: translateY(-.5rem);
+                box-shadow: var(--shadow-dark);
+            }
+
+        }
+
+        &__item__label {
+            height: auto;
+            width: 100%;
+
+            background-color: var(--color-grey-light-1);
+            border-radius: 5px;
+            box-shadow: var(--shadow-light);
+
+            &:hover {
+                cursor: pointer;
+                transform: translateY(-.5rem);
+                box-shadow: var(--shadow-dark);
+            }
+        }
+    }
+}

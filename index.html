@@ -14,90 +14,146 @@
 </head>
 
 <body>
-    <section class="ppg-component">
-        <div class="ppg-component__content">
-            <header class="ppg-component__header">
-                <div class="header__title">
-                    <svg role="img" title="Disciplinas" class="header__title--icon">
+    <div class="ppg-ufrgs-wp-component">
+        <div class="ppg-ufrgs-wp-component__content">
+            <header class="ppg-ufrgs-wp-component__header">
+                <div class="ppg-ufrgs-wp__header__title">
+                    <svg role="img" title="Disciplinas" class="ppg-ufrgs-wp__header__title__icon">
                         <use href="icons/icon-sheet.svg#class" />
                     </svg>
                     <h2 class="heading-secondary">Disciplinas</h2>
                 </div>
-                <div class="header__filter">
+                <div class="ppg-ufrgs-wp__header__filter">
 
-                    <div class="header__filter--holder">
-                        <label for="header__filter--general" class="header__filter--label">Filtrar</label>
-                        <input type="text" id="header__filter--general"
-                            class="header__filter--text ppg-component__filter--general" />
-                        <a class="header__filter--search-link" href="#">
-                            <svg role="img" title="Search" class="header__filter--icon">
+                    <div class="ppg-ufrgs-wp__header__filter__holder">
+                        <label for="ppg-ufrgs-wp__header__filter--general"
+                            class="ppg-ufrgs-wp__header__filter__label">Filtrar</label>
+                        <input type="text" id="ppg-ufrgs-wp__header__filter--general"
+                            class="ppg-ufrgs-wp__header__filter__text ppg-ufrgs-wp-component__filter--general" />
+                        <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
+                            <svg role="img" title="Search" class="ppg-ufrgs-wp__header__filter__icon">
                                 <use href="icons/icon-sheet.svg#search" />
                             </svg>
                         </a>
                     </div>
-                    <ul class="header__filter--list">
-                        <li class="header__filter--item header__filter--holder">
-                            <label for="header__filter--1" class="header__filter--label">Filtro 1</label>
-                            <input type="text" class="header__filter--text" placeholder="Filtro 1"
-                                id="header__filter--1" />
-                            <a class="header__filter--search-link" href="#">
-                                <svg role="img" title="Search" class="header__filter--icon">
+                    <ul class="ppg-ufrgs-wp__header__filter__list">
+                        <li class="ppg-ufrgs-wp__header__filter__item ppg-ufrgs-wp__header__filter__holder">
+                            <label for="ppg-ufrgs-wp__header__filter--1"
+                                class="ppg-ufrgs-wp__header__filter__label">Filtro 1</label>
+                            <input type="text" class="ppg-ufrgs-wp__header__filter__text" placeholder="Filtro 1"
+                                id="ppg-ufrgs-wp__header__filter--1" />
+                            <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
+                                <svg role="img" title="Search" class="ppg-ufrgs-wp__header__filter__icon">
                                     <use href="icons/icon-sheet.svg#search" />
                                 </svg>
                             </a>
                         </li>
-                        <li class="header__filter--item header__filter--holder">
-                            <label for="header__filter--2" class="header__filter--label">Filtro 2</label>
-                            <input type="text" class="header__filter--text" placeholder="Filtro 2"
-                                id="header__filter--2" />
-                            <a class="header__filter--search-link" href="#">
-                                <svg role="img" title="Search" class="header__filter--icon">
+                        <li class="ppg-ufrgs-wp__header__filter__item ppg-ufrgs-wp__header__filter__holder">
+                            <label for="ppg-ufrgs-wp__header__filter--2"
+                                class="ppg-ufrgs-wp__header__filter__label">Filtro 2</label>
+                            <input type="text" class="ppg-ufrgs-wp__header__filter__text" placeholder="Filtro 2"
+                                id="ppg-ufrgs-wp__header__filter--2" />
+                            <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
+                                <svg role="img" title="Search" class="ppg-ufrgs-wp__header__filter__icon">
                                     <use href="icons/icon-sheet.svg#search" />
                                 </svg>
                             </a>
                         </li>
-                        <li class="header__filter--item header__filter--holder">
-                            <label for="header__filter--3" class="header__filter--label">Filtro 3</label>
-                            <input type="text" class="header__filter--text" placeholder="Filtro 3"
-                                id="header__filter--3" />
-                            <a class="header__filter--search-link" href="#">
-                                <svg role="img" title="Search" class="header__filter--icon">
+                        <li class="ppg-ufrgs-wp__header__filter__item ppg-ufrgs-wp__header__filter__holder">
+                            <label for="ppg-ufrgs-wp__header__filter--3"
+                                class="ppg-ufrgs-wp__header__filter__label">Filtro 3</label>
+                            <input type="text" class="ppg-ufrgs-wp__header__filter__text" placeholder="Filtro 3"
+                                id="ppg-ufrgs-wp__header__filter--3" />
+                            <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
+                                <svg role="img" title="Search" class="ppg-ufrgs-wp__header__filter__icon">
                                     <use href="icons/icon-sheet.svg#search" />
                                 </svg>
                             </a>
                         </li>
                     </ul>
                 </div>
-                <svg role="img" title="Chama UFRGS" class="header__logo--img">
+                <svg role="img" title="Chama UFRGS" class="ppg-ufrgs-wp__header__logo__img">
                     <use href="icons/icon-sheet.svg#chama" />
                 </svg>
             </header>
-            <aside class="ppg-component__details">
-                <h3 class="ppg-component__details--title">Título</h3>
-                <ul class="ppg-component__details--list">
-                    <li class="ppg-component__details--item">
-                        <span class="ppg-component__details--item--title">Título</span>
-                        <span class="ppg-component__details--item--value">Valor</span>
-                    </li>
-                    <li class="ppg-component__details--item">
-                        <span class="ppg-component__details--item--title">Título</span>
-                        <span class="ppg-component__details--item--value">Valor</span>
-                    </li>
-                    <li class="ppg-component__details--item">
-                        <span class="ppg-component__details--item--title">Título</span>
-                        <span class="ppg-component__details--item--value">Valor</span>
-                    </li>
-                    <li class="ppg-component__details--item">
-                        <span class="ppg-component__details--item--title">Título</span>
-                        <span class="ppg-component__details--item--value">Valor</span>
-                    </li>
-                </ul>
+            <main class="ppg-ufrgs-wp__main">
+                <section class="ppg-ufrgs-wp-component__listing">
+                    <aside class="ppg-ufrgs-wp-component__details">
+                        <details class="ppg-ufrgs-wp__details">
+                            <summary class="ppg-ufrgs-wp__summary"><svg role="img" title="Detalhar"
+                                    class="ppg-ufrgs-wp__details__icon">
+                                    <use href="icons/icon-sheet.svg#next" />
+                                </svg></summary>
+                            <div class="ppg-ufrgs-wp__details__wrapper">
+                                <h3 class="ppg-ufrgs-wp__details__title">Título</h3>
+                                <ul class="ppg-ufrgs-wp__details__list">
+                                    <li class="ppg-ufrgs-wp__details__item">
+                                        <span class="ppg-ufrgs-wp__details__item__title">Título</span>
+                                        <span class="ppg-ufrgs-wp__details__item__value">Valor</span>
+                                    </li>
+                                    <li class="ppg-ufrgs-wp__details__item">
+                                        <span class="ppg-ufrgs-wp__details__item__title">Título</span>
+                                        <span class="ppg-ufrgs-wp__details__item__value">Valor</span>
+                                    </li>
+                                    <li class="ppg-ufrgs-wp__details__item">
+                                        <span class="ppg-ufrgs-wp__details__item__title">Título</span>
+                                        <span class="ppg-ufrgs-wp__details__item__value">Valor</span>
+                                    </li>
+                                    <li class="ppg-ufrgs-wp__details__item">
+                                        <span class="ppg-ufrgs-wp__details__item__title">Título</span>
+                                        <span class="ppg-ufrgs-wp__details__item__value">Valor</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+                    </aside>
 
-            </aside>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--1" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--1" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--2" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--2" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--3" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--3" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--4" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--4" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--5" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--5" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--6" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--6" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--7" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--7" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--8" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--8" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--9" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--9" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                    <div class="ppg-ufrgs-wp__listing__item"><input type="radio" name="ppg-ufrgs-wp__listing-item"
+                            id="ppg-ufrgs-wp__listing__item--10" class="ppg-ufrgs-wp__listing__item__rdo"><label
+                            for="ppg-ufrgs-wp__listing__item--10" class="ppg-ufrgs-wp__listing__item__label"></label>
+                    </div>
+                </section>
+            </main>
         </div>
-    </section>
+    </div>
     <script src="js/svg4everybody.min.js"></script>
-    <script defer>svg4everybody(); // run it now or whenever you are ready</script>
+    <script src="js/wp-ppg-front.js" defer></script>
 </body>
 
 </html>
