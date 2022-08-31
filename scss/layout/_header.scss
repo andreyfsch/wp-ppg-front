@@ -1,0 +1,108 @@
+//============
+// Header
+//============
+.ppg-ufrgs-wp {
+    &__header {
+
+        &__logo {
+            &__img {
+                flex: 1;
+                align-self: center;
+            }
+        }
+
+        &__filter {
+            flex: 4;
+            height: 100%;
+
+            &__holder {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: 5rem;
+                align-items: center;
+                justify-items: stretch;
+                align-content: space-evenly;
+                height: 100%;
+            }
+
+            &__list {
+                list-style: none;
+                width: 100%;
+                display: none;
+            }
+
+            &__text {
+                grid-row: 1 / 2;
+                grid-column: 2 / 6;
+                z-index: 1;
+                background-color: #EEE;
+                box-shadow: var(--shadow-light);
+                border: 0;
+                border-radius: 5rem;
+                height: 3.5rem;
+
+                font-size: 2rem;
+                padding-left: 1rem;
+
+                &:focus {
+                    border: none;
+                    box-shadow: var(--shadow-dark);
+                    outline: none;
+                    transform: translateY(-.1rem);
+
+                    &+.header__filter__search-link {
+                        transform: translateY(-.1rem);
+                    }
+                }
+
+            }
+
+            &__search-link {
+                grid-row: 1 / 2;
+                grid-column: 5 / 6;
+                z-index: 1;
+                max-width: 5rem;
+                max-height: 5rem;
+                justify-self: end;
+            }
+
+            &__label {
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;
+                z-index: 0;
+                position: relative;
+                text-align: right;
+                margin-right: 1rem;
+                font-size: 1.8rem;
+                font-weight: 400;
+                color: #1C2225;
+                text-transform: uppercase;
+            }
+
+            &__icon {
+                fill: var(--color-blue-gradient-mid);
+                transform: scale(.15) translate(-5rem, -7.5rem);
+                overflow: visible;
+                height: 5rem;
+                width: 5rem;
+            }
+        }
+
+        &__title {
+            flex: 1;
+            display: grid;
+            grid-template-rows: 1fr 2rem;
+            align-items: end;
+            justify-items: center;
+            gap: 5rem;
+
+            &__icon {
+                fill: #1C2225;
+                transform: scale(0.2);
+                overflow: visible;
+                left: -2rem;
+                position: relative;
+            }
+        }
+    }
+}
