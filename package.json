@@ -26,5 +26,13 @@
     "live-server": "^1.1.0",
     "postcss": "^8.4.12",
     "svgo": "^2.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreyfsch/wp-ppg-front.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andreyfsch/wp-ppg-front/issues"
+  },
+  "homepage": "https://github.com/andreyfsch/wp-ppg-front#readme"
 }
