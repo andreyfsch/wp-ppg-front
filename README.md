@@ -7,6 +7,7 @@ Interface do plugin de WordPress dos PPGs UFRGS
 * svg4everybody.js: exibição de ícones
 * axios.js: requisições API
 * @tarekraafat/autocomplete.js: filtragem de conteúdo
+* simplebar: scroll
 
 > Bibliotecas utilizadas no desenvolvimento:
 

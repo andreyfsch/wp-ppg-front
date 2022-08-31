@@ -14,13 +14,13 @@
 
             &:checked+.ppg-ufrgs-wp__listing__item__label {
                 transform: translateY(-.45rem);
-                box-shadow: var(--shadow-mid);
-                border: 3px solid var(--color-blue-gradient-light);
+                box-shadow: var(--shadow--base);
+                border: 3px solid var(--color--secondary--dark);
             }
 
             &:checked+.ppg-ufrgs-wp__listing__item__label:hover {
                 transform: translateY(-.5rem);
-                box-shadow: var(--shadow-dark);
+                box-shadow: var(--shadow--dark);
             }
 
         }
@@ -29,14 +29,14 @@
             height: auto;
             width: 100%;
 
-            background-color: var(--color-grey-light-1);
+            background-color: var(--color--light-grey--light);
             border-radius: 5px;
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow--light);
 
             &:hover {
                 cursor: pointer;
                 transform: translateY(-.5rem);
-                box-shadow: var(--shadow-dark);
+                box-shadow: var(--shadow--mid);
             }
         }
     }

@@ -3,6 +3,13 @@
 //============
 .heading-secondary {
     text-transform: uppercase;
-    font-size: 2.5rem;
-    color: var(--color-blue-gradient-light);
+    font-size: 1.5rem;
+    color: var(--color--secondary);
+}
+
+.header-label {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color--info--dark);
+    text-transform: uppercase;
 }

@@ -2,24 +2,24 @@
 // Colors
 //============
 
-$primary: #eb2f64;
-$blue-dark: #0f2027;
-$blue-mid: #203a43;
-$blue-light: #2c5364;
+$primary: #3f565d;
+$blue: #203a43;
 $secondary: #00142D;
 $accent: #e76f51;
 $heading: #212121;
 $text: #2c3e50;
-$background: #ffffff;
+$background: #eee;
 $success: #00e676;
 $warning: #ffea00;
 $danger: #ff3d00;
 $info: #00b0ff;
+$lightgrey: #ccc;
+$darkgrey: #333;
 $darken: 25;
 $lighten: 15;
 
 $colors: (primary: (base: $primary,
-        dark: darken($primary, $darken),
+        dark: darken($primary, 5%),
         light: lighten($primary, $lighten),
     ),
     secondary: (base: $secondary,
@@ -58,8 +58,14 @@ $colors: (primary: (base: $primary,
         dark: darken($info, $darken),
         light: lighten($info, $lighten),
     ),
-    blue-gradient: (base: $blue-mid,
-        dark: $blue-dark,
-        light: $blue-light,
+    blue-gradient: (dark: darken($blue, 5%),
+        base: $blue,
+        light: lighten($blue, $lighten),
     ),
+    light-grey: (dark: darken($lightgrey, $darken),
+        base: $lightgrey,
+        light: lighten($lightgrey, $lighten)),
+    dark-grey: (dark: darken($darkgrey, 5%),
+        base: $darkgrey,
+        light: lighten($darkgrey, 5%)),
 );

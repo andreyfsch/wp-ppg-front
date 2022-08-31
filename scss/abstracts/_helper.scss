@@ -12,6 +12,24 @@
         --color--#{$label}--light: #{map-get($value, light)};
     }
 
+    $gradient: '';
+
+    @each $label,
+    $value in map-get(helper.$colors, blue-gradient) {
+        $comma: if($label==light, '', ',');
+        $gradient: #{$gradient}+#{$value}+#{$comma};
+    }
+
+    --blue-gradient: #{$gradient};
+
+    --line: 1px solid #{map-get(map-get(helper.$colors, dark-grey), light)};
+
+    /*shadows*/
+    @each $label,
+    $value in helper.$shadows {
+        --shadow--#{$label}: #{map-get($value, offset-x)} #{map-get($value, offset-y)} #{map-get($value, blur-radius)} #{map-get($value, color)};
+    }
+
     /*spacing*/
     @each $label,
     $value in helper.$spacing {
@@ -31,6 +49,13 @@
         --weight--#{$label}: #{map-get($value, font-weight)};
         --leading--#{$label}: #{map-get($value, line-height)};
     }
+
+    /*screen sizes*/
+    @each $label,
+    $value in helper.$screen-sizes {
+        --screen--#{$label}: #{$value};
+    }
+
 }
 
 @each $label,
