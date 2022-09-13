@@ -10,13 +10,12 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" type="image/png" href="img/ufrgs.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.css" />
-
     <title>PPG - UFRGS</title>
 </head>
 
-<body style="overflow-y: hidden;">
+<body style=" overflow-y: hidden;">
     <div style="display: grid; grid-template-columns: 5fr 1fr;
-    grid-template-rows: 1fr 15fr">
+    grid-template-rows: 1fr 15fr; height: 100vh;">
         <div
             style="background-color: var(--color--light-grey--dark); grid-column: 1 / 2; grid-row: 1 / span 1; display: flex; align-items: center; justify-content: center; flex-direction: column;">
             <h1 style="color:var(--color--dark-grey)">Header WP</h1>
@@ -37,19 +36,36 @@
         </div>
         <div style="grid-column: 1 / 2; grid-row: 2 / -1; justify-content: center;align-items: center;">
             <div class="ppg-ufrgs-wp-component">
-                <div class="ppg-ufrgs-wp-component__content" data-simplebar>
+                <div class="ppg-ufrgs-wp-component__loader display--none" id="ppg-ufrgs-wp-component__loader">
+                    <svg class="ppg-ufrgs-wp-component__loader__icon" version="1.1" id="L6"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                        <use href="icons/icon-sheet.svg#chama" class="ppg-ufrgs-wp-component__loader__chama" />
+                        <rect fill="none" stroke="#fff" stroke-width="4" x="25" y="25" width="50" height="50">
+                            <animateTransform attributeName="transform" dur="0.5s" from="0 50 50" to="180 50 50"
+                                type="rotate" id="strokeBox" attributeType="XML" begin="rectBox.end">
+                            </animateTransform>
+
+                        </rect>
+                        <rect x="27" y="27" fill="#fff" width="46" height="50">
+                            <animate attributeName="height" dur="1.3s" attributeType="XML" from="50" to="0" id="rectBox"
+                                fill="freeze" begin="0s;strokeBox.end"></animate>
+                        </rect>
+                    </svg>
+                </div>
+                <div id="ppg-ufrgs-wp-component__content" class="ppg-ufrgs-wp-component__content">
                     <header class="ppg-ufrgs-wp-component__header">
                         <div class="ppg-ufrgs-wp__header__title">
                             <svg role="img" title="Disciplinas" class="ppg-ufrgs-wp__header__title__icon">
                                 <use href="icons/icon-sheet.svg#class" />
                             </svg>
-                            <h2 class="heading-secondary">Disciplinas</h2>
+                            <h2 class="ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--secondary">Disciplinas</h2>
                         </div>
                         <div class="ppg-ufrgs-wp__header__filter">
 
                             <div class="ppg-ufrgs-wp__header__filter__holder">
                                 <label for="ppg-ufrgs-wp__header__filter--general"
-                                    class="ppg-ufrgs-wp__header__filter__label header-label">Filtrar</label>
+                                    class="ppg-ufrgs-wp__header__filter__label header-label">Pesquisar</label>
                                 <input type="text" id="ppg-ufrgs-wp__header__filter--general"
                                     class="ppg-ufrgs-wp__header__filter__text ppg-ufrgs-wp-component__filter--general" />
                                 <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
@@ -98,7 +114,7 @@
                             <use href="icons/icon-sheet.svg#chama" />
                         </svg>
                     </header>
-                    <main class="ppg-ufrgs-wp-component__main">
+                    <main class="ppg-ufrgs-wp-component__main" data-simplebar>
                         <section class="ppg-ufrgs-wp-component__listing">
                             <aside class="ppg-ufrgs-wp-component__details">
                                 <details class="ppg-ufrgs-wp__details">
@@ -130,64 +146,14 @@
                                 </details>
                             </aside>
 
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--1"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--1"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--2"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--2"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--3"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--3"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--4"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--4"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--5"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--5"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--6"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--6"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--7"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--7"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--8"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--8"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--9"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--9"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
-                            <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-                                    name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--10"
-                                    class="ppg-ufrgs-wp__listing__item__rdo"><label
-                                    for="ppg-ufrgs-wp__listing__item--10"
-                                    class="ppg-ufrgs-wp__listing__item__label"></label>
-                            </div>
                         </section>
                     </main>
                 </div>
             </div>
             <script src="js/svg4everybody.min.js"></script>
-            <script src="js/wp-ppg-front.js" defer></script>
             <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+            <script src="node_modules/axios/dist/axios.min.js"></script>
+            <script src="js/wp-ppg-front.js" defer></script>
         </div>
     </div>
 </body>
