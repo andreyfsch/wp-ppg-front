@@ -46,8 +46,7 @@
 
     &__details {
         display: inline-block;
-        grid-column: 1 / 2;
-        grid-row: details-start / details-end;
+        grid-area: details;
 
         border-right: 2px solid;
         border-top: 2px solid;
@@ -90,7 +89,7 @@
 
         grid-gap: 2rem;
 
-        grid-template-columns: 1% repeat(auto-fit, minmax(10rem, 1fr));
+        grid-template-columns: 1% repeat(auto-fit, minmax(12rem, 1fr));
         grid-template-rows: repeat(auto-fit, minmax(7.5rem, 1fr));
 
         grid-auto-rows: minmax(15rem, 1fr);

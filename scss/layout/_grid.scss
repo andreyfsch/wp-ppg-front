@@ -43,6 +43,56 @@
 
             &__conteudo {
                 padding: 1rem;
+                position: relative;
+                height: 100%;
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                grid-template-areas:
+                    "cod cod cod badge badge badge badge"
+                    "nome nome nome nome nome nome nome"
+                    "sumula sumula sumula sumula sumula sumula sumula";
+                justify-items: stretch;
+                align-items: start;
+                grid-template-rows: min-content;
+            }
+
+            &__badge {
+                color: var(--color--light-grey--light);
+                border-radius: 5px;
+                text-align: center;
+                padding: 0.4rem 0.5rem;
+                display: inline-block;
+                grid-area: badge;
+
+                &--mestrado {
+                    background-color: var(--color--info--dark);
+                }
+
+                &--doutorado {
+                    background-color: var(--color--accent--dark);
+                }
+
+                &--outros {
+                    background-color: var(--color--success--dark);
+                }
+            }
+
+            &__sumula {
+                grid-area: sumula;
+                align-self: end;
+                background-color: var(--color--light-grey);
+                padding: 0.2rem;
+                border-radius: 3px;
+            }
+
+            &__cod {
+                grid-area: cod;
+            }
+
+            &__nome {
+                grid-area: nome;
+                align-self: start;
+                margin: 0.5rem;
             }
         }
     }

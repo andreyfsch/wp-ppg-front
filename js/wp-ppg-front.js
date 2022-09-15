@@ -1,4 +1,4 @@
-const BASE_URL = 'https://cors-container.herokuapp.com/https://api.ufrgs.br/v2/pos-graduacao'; //VERIFICAR FUNCIONAMENTO NO WORDPRESS
+const API_CORS_BASE_URL = 'https://cors-container.herokuapp.com/https://api.ufrgs.br/v2/pos-graduacao'; //VERIFICAR FUNCIONAMENTO NO WORDPRESS
 
 axios.interceptors.request.use((config) => {
     handleDisplayLoader();
@@ -9,26 +9,22 @@ axios.interceptors.request.use((config) => {
 
 const consomeAPI = async (endpoint, param, key) => {
     try {
-        const response = await axios.get(`${BASE_URL}/${endpoint}/${param}`,);
+        const url = `${API_CORS_BASE_URL}/${endpoint}/${param}`;
 
-        const dados = response.data.data[key];
+        const resp = await axios.get(url);
+
+        const dados = resp.data.data[key];
 
         return dados;
     } catch (err) { console.log(err) };
 };
 
-const handleDisplayLoader = () => {
+function handleDisplayLoader() {
     document.querySelector('#ppg-ufrgs-wp-component__loader').classList.toggle('display--none');
     document.querySelector('#ppg-ufrgs-wp-component__content').classList.toggle('display--none');
 }
 
-//  <div class="ppg-ufrgs-wp__listing__item"><input type="radio"
-//     name="ppg-ufrgs-wp__listing-item" id="ppg-ufrgs-wp__listing__item--1"
-//     class="ppg-ufrgs-wp__listing__item__rdo"><label for="ppg-ufrgs-wp__listing__item--1"
-//         class="ppg-ufrgs-wp__listing__item__label"></label>
-// </div> 
-
-const criarItemListagem = (item, index) => {
+function criarItemListagem (item, index) {
 
     let itemListagem = document.createElement('div');
     itemListagem.className = 'ppg-ufrgs-wp__listing__item';
@@ -40,8 +36,11 @@ const criarItemListagem = (item, index) => {
     rdoListagem.className = 'ppg-ufrgs-wp__listing__item__rdo';
     rdoListagem.addEventListener('change', (ev) => {
         section_listing = document.querySelector('section.ppg-ufrgs-wp-component__listing');
-        section_listing.style.gridTemplateColumns = "repeat( auto-fit, minmax(20rem, 1fr) )";
-        openDetails(ev);
+        section_listing.style.gridTemplateColumns = "repeat( auto-fit, minmax(10rem, 1fr) )";
+        let details = document.querySelector('details.ppg-ufrgs-wp__details');
+        if (!details.classList.contains('ppg-ufrgs-wp__details--open')) {
+            openDetails(ev);
+        }
     });
 
     let rdoLabel = document.createElement('label');
@@ -52,29 +51,44 @@ const criarItemListagem = (item, index) => {
     let conteudoItem = document.createElement('div');
     conteudoItem.className = 'ppg-ufrgs-wp__listing__item__conteudo';
 
+    let nivel = document.createElement('span');
+    let categoriaNivel = '';
+    if (item.NomeNivelCursoPG.startsWith('Dou')) {
+        categoriaNivel = 'ppg-ufrgs-wp__listing__item__badge--doutorado';
+    } else if (item.NomeNivelCursoPG.startsWith('Mes')) {
+        categoriaNivel = 'ppg-ufrgs-wp__listing__item__badge--mestrado';
+    } else {
+        categoriaNivel = 'ppg-ufrgs-wp__listing__item__badge--outros';
+    }
+    nivel.className = 'ppg-ufrgs-wp__listing__item__badge ' + categoriaNivel;
+    nivel.textContent = item.NomeNivelCursoPG;
+    conteudoItem.appendChild(nivel);
+
     let tituloItem = document.createElement('h3');
-    tituloItem.className = 'ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--tertiary';
-    tituloItem.innerHTML = item.Sigla;
+    tituloItem.className = 'ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--tertiary ppg-ufrgs-wp__listing__item__cod';
+    tituloItem.textContent = item.Sigla;
     conteudoItem.appendChild(tituloItem);
 
     let nomeItem = document.createElement('h4');
-    nomeItem.className = 'ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--quaternary';
-    nomeItem.innerHTML = item.NomeDisciplina;
+    nomeItem.className = 'ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--quaternary ppg-ufrgs-wp__listing__item__nome';
+    nomeItem.textContent = item.NomeDisciplina;
     conteudoItem.appendChild(nomeItem);
 
-
-
+    let sumula = document.createElement('p');
+    sumula.className = 'ppg-ufrgs-wp__listing__item__sumula';
+    sumula.textContent = item.Sumula;
+    $clamp(sumula, { clamp: 5 });
+    conteudoItem.appendChild(sumula);
 
     rdoLabel.appendChild(conteudoItem);
-
     itemListagem.appendChild(rdoListagem);
     itemListagem.appendChild(rdoLabel);
 
 
     return itemListagem;
-};
+}
 
-const updateListagem = itemsListagem => {
+function updateListagem (itemsListagem) {
     let listagem = document.querySelector('section.ppg-ufrgs-wp-component__listing');
 
     if (Array.isArray(itemsListagem) && itemsListagem.length > 0) {
@@ -84,18 +98,20 @@ const updateListagem = itemsListagem => {
     } else if (itemsListagem) {
         listagem.appendChild(criarItemListagem(itemsListagem, 0));
     }
-};
+}
 
-const carregaDisciplinas = async () => {
-    updateListagem(await consomeAPI('disciplinas/programa', 443, 'disciplinas'));
+async function carregaDisciplinas () {
+    updateListagem(await consomeAPI('disciplinas/programa', 420, 'disciplinas'));
     handleDisplayLoader();
-};
+    correctCollapsedItems();
+}
 
 /**
  * Calculates the number of rows and lines in the layout
  * and handles grid areas.
  */
 function correctCollapsedItems() {
+
     var section_listing = document.querySelector('section.ppg-ufrgs-wp-component__listing');
     var holder_width = section_listing.offsetWidth;
     var listing_items = document.querySelectorAll('div.ppg-ufrgs-wp__listing__item');
@@ -180,6 +196,8 @@ function openDetails(ev) {
     var listing_items = document.querySelectorAll('div.ppg-ufrgs-wp__listing__item');
     var details = document.querySelector('details.ppg-ufrgs-wp__details');
 
+    details.classList.add('ppg-ufrgs-wp__details--open');
+
     var num_lines = 0;
     var num_columns = 0;
     listing_items.forEach(item => {
@@ -193,12 +211,15 @@ function openDetails(ev) {
             num_columns = item_column;
         }
     });
-    num_lines++;
+
     num_columns++;
+    num_columns++;
+
+    console.log(num_columns);
+    console.log(num_lines);
     assignGridArea(num_lines, num_columns, true);
     toggleDetailsOpen(ev);
 }
-
 
 /**
  * Assigns a new grid-areas property to the grid element
@@ -236,23 +257,28 @@ function genGridAreas(total_lines, total_columns, layout_open = false) {
     for (let line = 0; line < total_lines; line++) {
         grid_areas += '\"';
         for (let col = 0; col < total_columns; col++) {
-            if (col == 0) {
+
+            if (col == 0 && !layout_open) {
                 if (line < 2) {
-                    grid_areas += 'details';
+                    grid_areas += 'details ';
                 } else {
-                    if (layout_open) {
-                        grid_areas += 'items-' + line + '-' + col;
-                        assigned_areas++;
-                    } else {
-                        grid_areas += '.';
-                    }
+                    grid_areas += '. ';
                 }
-            } else if (assigned_areas < num_items) {
+                continue;
+            }
+
+            if (col <= 2 && line < 2 && layout_open) {
+                grid_areas += 'details ';
+                continue;
+            }
+
+            if (assigned_areas < num_items) {
                 grid_areas += 'items-' + line + '-' + col;
                 assigned_areas++;
             } else {
                 grid_areas += '.';
             }
+
             if (col < total_columns - 1) {
                 grid_areas += ' ';
             }
@@ -268,7 +294,7 @@ function genGridAreas(total_lines, total_columns, layout_open = false) {
     return grid_areas;
 }
 
-const assignProperties = () => {
+function assignProperties() {
     let details = document.querySelector('details.ppg-ufrgs-wp__details');
     let detailContent = details;
     let detailClosedWidth = details.scrollWidth;
@@ -292,18 +318,11 @@ const assignProperties = () => {
     });
 }
 
-
-
-
-
-
 function toggleDetailsOpen(ev) {
-
-    console.log(ev);
 
     var container = document.querySelector('details.ppg-ufrgs-wp__details');
 
-    const timeout = getComputedStyle(container.querySelector('div.ppg-ufrgs-wp__details__wrapper')).getPropertyValue('--details-transition-time');
+    const timeout = 2000;
 
     // we can't use [open] as it will be only removed after the transition
     container.classList.toggle('is--open');
@@ -312,7 +331,6 @@ function toggleDetailsOpen(ev) {
     if (container.open) {
         ev.preventDefault();
         setTimeout(function () {
-
             container.open = false;
         }, parseInt(timeout))
     }
@@ -320,4 +338,4 @@ function toggleDetailsOpen(ev) {
 
 document.addEventListener('DOMContentLoaded', svg4everybody());
 document.addEventListener('DOMContentLoaded', carregaDisciplinas());
-document.addEventListener('DOMContentLoaded', correctCollapsedItems());
+document.addEventListener('resize', correctCollapsedItems());
