@@ -1,4 +1,7 @@
-const API_CORS_BASE_URL = 'https://cors-container.herokuapp.com/https://api.ufrgs.br/v2/pos-graduacao'; //VERIFICAR FUNCIONAMENTO NO WORDPRESS
+const API_BASE_URL = 'https://api.ufrgs.br/v2/pos-graduacao';
+const HEROKU_CORS_URL = 'https://cors-container.herokuapp.com/';
+const API_CORS_BASE_URL = HEROKU_CORS_URL + API_BASE_URL; //VERIFICAR FUNCIONAMENTO NO WORDPRESS
+const COD_ORGAO = 420;
 
 axios.interceptors.request.use((config) => {
     handleDisplayLoader();
@@ -24,7 +27,7 @@ function handleDisplayLoader() {
     document.querySelector('#ppg-ufrgs-wp-component__content').classList.toggle('display--none');
 }
 
-function criarItemListagem (item, index) {
+function criarItemListagem(item, index) {
 
     let itemListagem = document.createElement('div');
     itemListagem.className = 'ppg-ufrgs-wp__listing__item';
@@ -88,7 +91,7 @@ function criarItemListagem (item, index) {
     return itemListagem;
 }
 
-function updateListagem (itemsListagem) {
+function updateListagem(itemsListagem) {
     let listagem = document.querySelector('section.ppg-ufrgs-wp-component__listing');
 
     if (Array.isArray(itemsListagem) && itemsListagem.length > 0) {
@@ -100,8 +103,8 @@ function updateListagem (itemsListagem) {
     }
 }
 
-async function carregaDisciplinas () {
-    updateListagem(await consomeAPI('disciplinas/programa', 420, 'disciplinas'));
+async function carregaDisciplinas() {
+    updateListagem(await consomeAPI('disciplinas/programa', COD_ORGAO, 'disciplinas'));
     handleDisplayLoader();
     correctCollapsedItems();
 }
