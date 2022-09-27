@@ -3,6 +3,9 @@ const HEROKU_CORS_URL = 'https://cors-container.herokuapp.com/';
 const API_CORS_BASE_URL = HEROKU_CORS_URL + API_BASE_URL; //VERIFICAR FUNCIONAMENTO NO WORDPRESS
 const COD_ORGAO = 420;
 
+const MIN_CARD_WIDTH = 220;
+const MIN_CARD_HEIGHT = 310;
+
 axios.interceptors.request.use((config) => {
     handleDisplayLoader();
     return config;
@@ -107,6 +110,14 @@ async function carregaDisciplinas() {
     updateListagem(await consomeAPI('disciplinas/programa', COD_ORGAO, 'disciplinas'));
     handleDisplayLoader();
     correctCollapsedItems();
+}
+
+function watchGridArea() {
+    var section_listing = document.querySelector('section.ppg-ufrgs-wp-component__listing');
+    var holder_width = section_listing.offsetWidth;
+    var listing_items = document.querySelectorAll('div.ppg-ufrgs-wp__listing__item');
+
+
 }
 
 /**
