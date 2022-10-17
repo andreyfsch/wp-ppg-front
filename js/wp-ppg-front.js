@@ -30,66 +30,110 @@ function handleDisplayLoader() {
     document.querySelector('#ppg-ufrgs-wp-component__content').classList.toggle('display--none');
 }
 
-function criarItemListagem(item, index) {
+function handleItemChange(ev) {
+    section_listing = document.querySelector('section.ppg-ufrgs-wp-component__listing');
+    section_listing.style.gridTemplateColumns = "repeat( auto-fit, minmax(10rem, 1fr) )";
+    let details = document.querySelector('details.ppg-ufrgs-wp__details');
+    if (!details.classList.contains('ppg-ufrgs-wp__details--open')) {
+        openDetails(ev);
+    }
+}
 
-    let itemListagem = document.createElement('div');
-    itemListagem.className = 'ppg-ufrgs-wp__listing__item';
+function createDivItem() {
+    let divItem = document.createElement('div');
+    divItem.className = 'ppg-ufrgs-wp__listing__item';
+    return divItem;
+}
 
-    let rdoListagem = document.createElement('input');
-    rdoListagem.type = 'radio';
-    rdoListagem.name = 'ppg-ufrgs-wp__listing-item';
-    rdoListagem.id = 'ppg-ufrgs-wp__listing__item--' + index;
-    rdoListagem.className = 'ppg-ufrgs-wp__listing__item__rdo';
-    rdoListagem.addEventListener('change', (ev) => {
-        section_listing = document.querySelector('section.ppg-ufrgs-wp-component__listing');
-        section_listing.style.gridTemplateColumns = "repeat( auto-fit, minmax(10rem, 1fr) )";
-        let details = document.querySelector('details.ppg-ufrgs-wp__details');
-        if (!details.classList.contains('ppg-ufrgs-wp__details--open')) {
-            openDetails(ev);
-        }
-    });
+function createRadioItem(line, col) {
+    let radioButton = document.createElement('input');
+    radioButton.type = 'radio';
+    radioButton.name = 'ppg-ufrgs-wp__listing-item';
+    radioButton.id = 'ppg-ufrgs-wp__listing__item--' + line + '--' + col;
+    radioButton.className = 'ppg-ufrgs-wp__listing__item__rdo '+ line + '--' + col;
+    radioButton.addEventListener('change', handleItemChange());
 
+    return radioButton;
+}
+
+function createLabelItem(item, line, col) {
     let rdoLabel = document.createElement('label');
-    rdoLabel.setAttribute('for', 'ppg-ufrgs-wp__listing__item--' + index);
+    rdoLabel.setAttribute('for',  + line + '--' + col);
     rdoLabel.className = 'ppg-ufrgs-wp__listing__item__label';
 
+    let content = createContentItem(item);
 
-    let conteudoItem = document.createElement('div');
-    conteudoItem.className = 'ppg-ufrgs-wp__listing__item__conteudo';
+    rdoLabel.appendChild(content);
 
-    let nivel = document.createElement('span');
-    let categoriaNivel = '';
+    return rdoLabel;
+}
+
+function createContentItem(item) {
+    let contentDiv = document.createElement('div');
+    contentDiv.className = 'ppg-ufrgs-wp__listing__item__conteudo';
+
+    let degree = createSpanCategoryItem(item);
+    let title = createTitleItem(item);
+    let name = createNameItem(item);
+    let description = createDescriptionItem(item);
+    
+    contentDiv.appendChild(degree);
+    contentDiv.appendChild(title);
+    contentDiv.appendChild(name);
+    contentDiv.appendChild(description);
+
+    return contentDiv;
+}
+
+function createSpanCategoryItem(item) {
+    let category = document.createElement('span');
+    let degree = '';
     if (item.NomeNivelCursoPG.startsWith('Dou')) {
-        categoriaNivel = 'ppg-ufrgs-wp__listing__item__badge--doutorado';
+        degree = 'ppg-ufrgs-wp__listing__item__badge--doutorado';
     } else if (item.NomeNivelCursoPG.startsWith('Mes')) {
-        categoriaNivel = 'ppg-ufrgs-wp__listing__item__badge--mestrado';
+        degree = 'ppg-ufrgs-wp__listing__item__badge--mestrado';
     } else {
-        categoriaNivel = 'ppg-ufrgs-wp__listing__item__badge--outros';
+        degree = 'ppg-ufrgs-wp__listing__item__badge--outros';
     }
-    nivel.className = 'ppg-ufrgs-wp__listing__item__badge ' + categoriaNivel;
-    nivel.textContent = item.NomeNivelCursoPG;
-    conteudoItem.appendChild(nivel);
+    category.className = 'ppg-ufrgs-wp__listing__item__badge ' + degree;
+    category.textContent = item.NomeNivelCursoPG;
 
-    let tituloItem = document.createElement('h3');
-    tituloItem.className = 'ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--tertiary ppg-ufrgs-wp__listing__item__cod';
-    tituloItem.textContent = item.Sigla;
-    conteudoItem.appendChild(tituloItem);
+    return category;
+}
 
-    let nomeItem = document.createElement('h4');
-    nomeItem.className = 'ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--quaternary ppg-ufrgs-wp__listing__item__nome';
-    nomeItem.textContent = item.NomeDisciplina;
-    conteudoItem.appendChild(nomeItem);
+function createTitleItem(item) {
+    let title = document.createElement('h3');
+    title.className = 'ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--tertiary ppg-ufrgs-wp__listing__item__cod';
+    title.textContent = item.Sigla;
 
-    let sumula = document.createElement('p');
-    sumula.className = 'ppg-ufrgs-wp__listing__item__sumula';
-    sumula.textContent = item.Sumula;
-    $clamp(sumula, { clamp: 5 });
-    conteudoItem.appendChild(sumula);
+    return title;
+}
 
-    rdoLabel.appendChild(conteudoItem);
+function createNameItem(item) {
+    let itemName = document.createElement('h4');
+    itemName.className = 'ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--quaternary ppg-ufrgs-wp__listing__item__nome';
+    itemName.textContent = item.NomeDisciplina;
+
+    return itemName;
+}
+
+function createDescriptionItem(item) {
+    let description = document.createElement('p');
+    description.className = 'ppg-ufrgs-wp__listing__item__sumula';
+    description.textContent = item.Sumula;
+    $clamp(description, { clamp: 5 });
+    
+    return description;
+}
+
+function createListingItem(item, line, col) {
+
+    let itemListagem = createDivItem();
+    let rdoListagem = createRadioItem(line, col);
+    let rdoLabel = createLabelItem(item, line, col);
+    
     itemListagem.appendChild(rdoListagem);
     itemListagem.appendChild(rdoLabel);
-
 
     return itemListagem;
 }
@@ -98,11 +142,12 @@ function updateListagem(itemsListagem) {
     let listagem = document.querySelector('section.ppg-ufrgs-wp-component__listing');
 
     if (Array.isArray(itemsListagem) && itemsListagem.length > 0) {
-        itemsListagem.map((itemListagem, index) => {
-            listagem.appendChild(criarItemListagem(itemListagem, index));
+        itemsListagem.map((itemListagem) => {
+            let line, col = calcMatrix(itemListagem, itemsListagem);
+            listagem.appendChild(createListingItem(itemListagem, line, col));
         });
     } else if (itemsListagem) {
-        listagem.appendChild(criarItemListagem(itemsListagem, 0));
+        listagem.appendChild(createListingItem(itemsListagem, 0, 0));
     }
 }
 
@@ -169,12 +214,9 @@ function correctCollapsedItems() {
  * and assings it to the elements' style.
  * @param {number} total_lines - number of lines in layout grid.
  * @param {number} total_columns - number of columns in layout grid.
- * @param {boolean} [layout_open=false] - flag to handle opened or closed layout.
  */
-function assignItemsAreas(total_lines, total_columns, layout_open = false) {
+function assignItemsAreas(total_lines, total_columns) {
     var listing_items = document.querySelectorAll('div.ppg-ufrgs-wp__listing__item');
-    var start_col = layout_open ? 0 : 1;
-    var stop_col = layout_open ? total_columns - 1 : total_columns;
     var item_count = 0;
     var occupied_cells = [];
 
@@ -183,13 +225,8 @@ function assignItemsAreas(total_lines, total_columns, layout_open = false) {
         var item_done = false;
 
         for (let line = 0; line < total_lines; line++) {
-            for (let col = start_col; col < stop_col; col++) {
-                if (line == 0 && col == 0 //details 
-                    || (line == 1 && col == 0)) {
-                    continue;
-                }
+            for (let col = 0; col < total_columns; col++) {
                 if (item_count <= listing_items.length) {
-
                     if (!occupied_cells.includes('items-' + line + '-' + col)) {
                         item.style.gridArea = 'items-' + line + '-' + col;
                         occupied_cells.push('items-' + line + '-' + col);
@@ -287,7 +324,7 @@ function genGridAreas(total_lines, total_columns, layout_open = false) {
             }
 
             if (assigned_areas < num_items) {
-                grid_areas += 'items-' + line + '-' + col;
+                grid_areas += 'items--' + line + '--' + col;
                 assigned_areas++;
             } else {
                 grid_areas += '.';

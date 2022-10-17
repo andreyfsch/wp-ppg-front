@@ -1,12 +1,23 @@
 //============
 // Grid
 //============
+@use "sass:math";
+
+/*listing*/
+$grid-holder: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 .ppg-ufrgs-wp {
     &__listing {
         &__item {
             display: flex;
             justify-content: stretch;
             align-content: stretch;
+            @each $line in $grid-holder {
+                @each $col in $grid-holder {
+                    &--#{$line}--#{$col} {
+                        grid-area: items--#{$line}--#{$col};
+                    }
+                }
+            }
         }
 
         &__item {
