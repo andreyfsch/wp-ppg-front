@@ -1,0 +1,55 @@
+//============
+// Typography
+//============
+.header-label {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color--info--dark);
+    text-transform: uppercase;
+}
+
+.ppg-ufrgs-wp {
+
+    &__heading {
+        color: var(--color--secondary--light);
+
+        &--secondary {
+            text-transform: uppercase;
+            font-size: var(--text--3);
+            font-weight: var(--weight--4);
+            color: var(--color--heading--light);
+        }
+
+        &--tertiary {
+            font-size: var(--text--2);
+            font-weight: var(--weight--4);
+        }
+
+        &--quaternary {
+            font-size: var(--text--1);
+            font-weight: var(--weight--4);
+        }
+    }
+
+    &__listing__item {
+        &__badge {
+            font-size: 13px;
+            font-weight: var(--weight--5);
+        }
+
+        &__sumula {
+            font-size: var(--text--1);
+            font-weight: var(--weight--1);
+            line-height: 20px;
+        }
+
+        &__nome {
+            color: var(--color--blue-gradient--light);
+        }
+
+        &__cod {
+            color: var(--color--dark-grey--light);
+        }
+    }
+
+}

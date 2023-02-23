@@ -1,0 +1,107 @@
+//============
+// Header
+//============
+.ppg-ufrgs-wp {
+    &__header {
+        &__logo {
+            &__img {
+                flex: 1;
+                align-self: center;
+                transform: scale(1.5) translateX(25%);
+            }
+        }
+
+        &__filter {
+            flex: 4;
+            height: 100%;
+
+            &__holder {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: 5rem;
+                align-items: center;
+                justify-items: stretch;
+                align-content: space-evenly;
+                height: 100%;
+            }
+
+            &__list {
+                list-style: none;
+                width: 100%;
+                display: none;
+            }
+
+            &__text {
+                grid-row: 1 / 2;
+                grid-column: 2 / 6;
+                z-index: 1;
+                background-color: var(--color--background);
+                box-shadow: var(--shadow--light);
+                border: 0;
+                border-radius: 5rem;
+                height: 2.5rem;
+
+                font-size: 1.5rem;
+                padding-left: 1rem;
+
+                &:focus {
+                    border: none;
+                    box-shadow: var(--shadow--dark);
+                    outline: none;
+                    transform: translateY(-0.1rem);
+
+                    &+.ppg-ufrgs-wp__header__filter__search-link {
+                        transform: translateY(-0.1rem);
+                    }
+                }
+
+            }
+
+            &__search-link {
+                grid-row: 1 / 2;
+                grid-column: 5 / 6;
+                z-index: 1;
+                max-width: 3rem;
+                max-height: 3rem;
+                justify-self: end;
+
+                &:active {
+                    transform: translateY(0.1rem);
+                }
+            }
+
+            &__label {
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;
+                z-index: 0;
+                position: relative;
+                text-align: right;
+                margin-right: 1rem;
+            }
+
+            &__icon {
+                fill: var(--color--primary--dark);
+                transform: scale(.15) translate(-8.5rem, -10rem);
+                overflow: visible;
+                height: 5rem;
+                width: 5rem;
+
+            }
+
+        }
+
+        &__title {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            &__icon {
+                fill: var(--color--light-grey--dark);
+                transform: scale(0.35) translate(-15rem, -15rem);
+                overflow: visible;
+            }
+        }
+    }
+}

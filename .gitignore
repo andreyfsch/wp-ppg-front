@@ -1,0 +1,5 @@
+node_modules
+.parcel-cache
+wp-ppg-front.code-workspace
+dist
+.history

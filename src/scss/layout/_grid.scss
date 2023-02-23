@@ -1,0 +1,110 @@
+//============
+// Grid
+//============
+@use "sass:math";
+
+/*listing*/
+$grid-holder: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+.ppg-ufrgs-wp {
+    &__listing {
+        &__item {
+            display: flex;
+            justify-content: stretch;
+            align-content: stretch;
+            @each $line in $grid-holder {
+                @each $col in $grid-holder {
+                    &--#{$line}--#{$col} {
+                        grid-area: items--#{$line}--#{$col};
+                    }
+                }
+            }
+        }
+
+        &__item {
+            &__rdo {
+                display: none;
+
+                &:checked+.ppg-ufrgs-wp__listing__item__label {
+                    transform: translateY(-.45rem);
+                    box-shadow: var(--shadow--base);
+                    border: 3px solid var(--color--secondary--dark);
+                }
+
+                &:checked+.ppg-ufrgs-wp__listing__item__label:hover {
+                    transform: translateY(-.5rem);
+                    box-shadow: var(--shadow--dark);
+                }
+
+            }
+
+            &__label {
+                height: auto;
+                width: 100%;
+
+                background-color: var(--color--light-grey--light);
+                border-radius: 5px;
+                box-shadow: var(--shadow--light);
+
+                &:hover {
+                    cursor: pointer;
+                    transform: translateY(-.5rem);
+                    box-shadow: var(--shadow--mid);
+                }
+            }
+
+            &__conteudo {
+                padding: 1rem;
+                position: relative;
+                height: 100%;
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                grid-template-areas:
+                    "cod cod cod cod badge badge badge"
+                    "nome nome nome nome nome nome nome"
+                    "sumula sumula sumula sumula sumula sumula sumula";
+                justify-items: stretch;
+                align-items: start;
+                grid-template-rows: min-content;
+            }
+
+            &__badge {
+                color: var(--color--light-grey--light);
+                border-radius: 5px;
+                text-align: center;
+                padding: 0.4rem 0.5rem;
+                display: inline-block;
+                grid-area: badge;
+
+                &--mestrado {
+                    background-color: var(--color--info--dark);
+                }
+
+                &--doutorado {
+                    background-color: var(--color--accent--dark);
+                }
+
+                &--outros {
+                    background-color: var(--color--success--dark);
+                }
+            }
+
+            &__sumula {
+                grid-area: sumula;
+                align-self: end;
+                background-color: var(--color--light-grey);
+                padding: 0.2rem;
+                border-radius: 3px;
+            }
+
+            &__cod {
+                grid-area: cod;
+            }
+
+            &__nome {
+                grid-area: nome;
+                align-self: start;
+                margin: 0.5rem;
+            }
+        }
+    }
+}
