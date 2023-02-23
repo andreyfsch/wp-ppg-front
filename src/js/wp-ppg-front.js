@@ -142,7 +142,7 @@ function updateListagem(itemsListagem) {
     let listagem = document.querySelector('section.ppg-ufrgs-wp-component__listing');
 
     if (Array.isArray(itemsListagem) && itemsListagem.length > 0) {
-        itemsListagem.map((itemListageme) => {
+        itemsListagem.map((itemListagem) => {
             let line, col = calcMatrix(itemListagem, itemsListagem);
             listagem.appendChild(createListingItem(itemListagem, line, col));
         });

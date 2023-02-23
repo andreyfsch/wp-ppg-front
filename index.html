@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="shortcut icon" type="image/png" href="img/ufrgs.png">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="src/img/ufrgs.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.css" />
     <title>PPG - UFRGS</title>
     <noscript>
@@ -50,7 +50,7 @@
                     <svg class="ppg-ufrgs-wp-component__loader__icon" version="1.1" id="L6"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-                        <use href="icons/icon-sheet.svg#chama" class="ppg-ufrgs-wp-component__loader__chama" />
+                        <use href="src/icons/icon-sheet.svg#chama" class="ppg-ufrgs-wp-component__loader__chama" />
                         <rect fill="none" stroke="#fff" stroke-width="4" x="25" y="25" width="50" height="50">
                             <animateTransform attributeName="transform" dur="0.5s" from="0 50 50" to="180 50 50"
                                 type="rotate" id="strokeBox" attributeType="XML" begin="rectBox.end">
@@ -67,7 +67,7 @@
                     <header class="ppg-ufrgs-wp-component__header">
                         <div class="ppg-ufrgs-wp__header__title">
                             <svg role="img" title="Disciplinas" class="ppg-ufrgs-wp__header__title__icon">
-                                <use href="icons/icon-sheet.svg#class" />
+                                <use href="src/icons/icon-sheet.svg#class" />
                             </svg>
                             <h2 class="ppg-ufrgs-wp__heading ppg-ufrgs-wp__heading--secondary">Disciplinas</h2>
                         </div>
@@ -79,7 +79,7 @@
                                     class="ppg-ufrgs-wp__header__filter__text ppg-ufrgs-wp-component__filter--general" />
                                 <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
                                     <svg role="img" title="Search" class="ppg-ufrgs-wp__header__filter__icon">
-                                        <use href="icons/icon-sheet.svg#search" />
+                                        <use href="src/icons/icon-sheet.svg#search" />
                                     </svg>
                                 </a>
                             </div>
@@ -91,7 +91,7 @@
                                         id="ppg-ufrgs-wp__header__filter--1" />
                                     <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
                                         <svg role="img" title="Search" class="ppg-ufrgs-wp__header__filter__icon">
-                                            <use href="icons/icon-sheet.svg#search" />
+                                            <use href="src/icons/icon-sheet.svg#search" />
                                         </svg>
                                     </a>
                                 </li>
@@ -102,7 +102,7 @@
                                         id="ppg-ufrgs-wp__header__filter--2" />
                                     <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
                                         <svg role="img" title="Search" class="ppg-ufrgs-wp__header__filter__icon">
-                                            <use href="icons/icon-sheet.svg#search" />
+                                            <use href="src/icons/icon-sheet.svg#search" />
                                         </svg>
                                     </a>
                                 </li>
@@ -113,14 +113,14 @@
                                         id="ppg-ufrgs-wp__header__filter--3" />
                                     <a class="ppg-ufrgs-wp__header__filter__search-link" href="#">
                                         <svg role="img" title="Search" class="ppg-ufrgs-wp__header__filter__icon">
-                                            <use href="icons/icon-sheet.svg#search" />
+                                            <use href="src/icons/icon-sheet.svg#search" />
                                         </svg>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <svg role="img" title="Chama UFRGS" class="ppg-ufrgs-wp__header__logo__img">
-                            <use href="icons/icon-sheet.svg#chama" />
+                            <use href="src/icons/icon-sheet.svg#chama" />
                         </svg>
                     </header>
                     <main class="ppg-ufrgs-wp-component__main" data-simplebar>
@@ -129,7 +129,7 @@
                                 <details class="ppg-ufrgs-wp__details">
                                     <summary class="ppg-ufrgs-wp__summary"><svg role="img" title="Detalhar"
                                             class="ppg-ufrgs-wp__details__icon">
-                                            <use href="icons/icon-sheet.svg#next" />
+                                            <use href="src/icons/icon-sheet.svg#next" />
                                         </svg></summary>
                                     <div class="ppg-ufrgs-wp__details__wrapper">
                                         <h3 class="ppg-ufrgs-wp__details__title">Título</h3>
@@ -159,12 +159,13 @@
                 </div>
             </div>
 
-            <script src="js/svg4everybody.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
-            <script src="js/axios.min.js"></script>
-            <script src="js/clamp.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
-            <script src="js/wp-ppg-front.js" defer></script>
+            <script type="module" src="src/js/svg4everybody.min.js"></script>
+            <script type="module" src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+            <script type="module" src="src/js/axios.min.js"></script>
+            <script type="module" src="src/js/clamp.min.js"></script>
+            <script type="module"
+                src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+            <script type="module" src="src/js/wp-ppg-front.js"></script>
         </div>
     </div>
 </body>

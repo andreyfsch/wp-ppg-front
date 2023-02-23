@@ -2796,7 +2796,7 @@ template {
   box-sizing: border-box;
   font-size: 62.5%;
 }
-@media only screen and (width < 75em) {
+@media only screen and (width < var(--screen--large)) {
   .ppg-ufrgs-wp-component * {
     font-size: 50%;
   }
@@ -3441,4 +3441,4 @@ template {
   grid-auto-rows: minmax(7.5rem, 1fr);
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.comp.css.map */

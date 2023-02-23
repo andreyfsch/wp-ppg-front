@@ -16,7 +16,7 @@
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
 
-    @media only screen and (max-width: var(--screen--large)) {
+    @media only screen and (width < 75em) {
         font-size: 50%;
     }
 }
