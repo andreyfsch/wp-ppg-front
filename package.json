@@ -1,49 +1,33 @@
 {
-    "name": "wp-ppg-ufrgs",
-    "version": "1.0.0",
-    "description": "WordPress plugin for PPG UFRFGS",
-    "scripts": {
-        "watch:sass": "nodemon -e sass -x \"sass scss/main.scss css/style.css -w\"",
-        "files.autoSave": "onFocusChange",
-        "devserver": "live-server --cors",
-        "start": "npm-run-all --parallel devserver watch:sass",
-        "compile:sass": "sass scss/main.scss src/css/style.css",
-        "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' src/css/style.comp.css -o src/css/style.prefix.css",
-        "compress:css": "css-minify -f src/css/style.prefix.css src/css/style.css",
-        "build:css": "npm-run-all compile:sass prefix:css compress:css",
-        "generate:sprite": "svg-icon-sprite --folder=src/icons/svg --output=src/icons/icon-sheet.svg",
-        "optimize:svg": "svgo -f src/icons/svg -o src/icons/svg",
-        "build:js": "parcel build index.html",
-        "build": "npm-run-all compile:sass build:js"
-    },
-    "author": "Andrey",
-    "license": "MIT",
-    "devDependencies": {
-        "autoprefixer": ">=10.4.8",
-        "buffer": "^6.0.3",
-        "css-minify": "^2.0.0",
-        "live-server": ">=1.2.0",
-        "nodemon": ">=2.0.19",
-        "npm-run-all": "^4.1.5",
-        "parcel": "^2.7.0",
-        "postcss": ">=8.4.16",
-        "postcss-cli": ">=10.0.0",
-        "process": "^0.11.10",
-        "sass": ">=1.54.7",
-        "svg-icon-sprite": ">=1.1.1",
-        "svgo": ">=2.8.0"
-    },
-    "dependencies": {
-        "@tarekraafat/autocomplete.js": ">= 10.2.7",
-        "axios": ">=0.27.2",
-        "simplebar": "^5.3.8"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/andreyfsch/wp-ppg-front.git"
-    },
-    "bugs": {
-        "url": "https://github.com/andreyfsch/wp-ppg-front/issues"
-    },
-    "homepage": "https://github.com/andreyfsch/wp-ppg-front#readme"
+  "name": "wp-ppg-ufrgs",
+  "version": "1.0.0",
+  "description": "WordPress plugin for PPG UFRFGS",
+  "scripts": {
+    "generate:sprite": "svg-icon-sprite --folder=src/icons/svg --output=src/icons/icon-sheet.svg",
+    "optimize:svg": "svgo -f src/icons/svg -o src/icons/svg",
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Andrey",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": ">=2.7.0",
+    "sass": ">=1.54.7",
+    "svg-icon-sprite": ">=1.1.1",
+    "svgo": ">=2.8.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.13.7",
+    "simplebar": "^5.3.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreyfsch/wp-ppg-front.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andreyfsch/wp-ppg-front/issues"
+  },
+  "homepage": "https://github.com/andreyfsch/wp-ppg-front#readme"
 }
