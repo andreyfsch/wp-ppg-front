@@ -3,3 +3,5 @@ node_modules
 wp-ppg-front.code-workspace
 dist
 .history
+cors-proxy/.history
+cors-proxy/node_modules

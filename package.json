@@ -6,17 +6,29 @@
     "generate:sprite": "svg-icon-sprite --folder=src/icons/svg --output=src/icons/icon-sheet.svg",
     "optimize:svg": "svgo -f src/icons/svg -o src/icons/svg",
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist"
+    "build": "parcel build index.html",
+    "test": "semistandard",
+    "fix": "semistandard --fix"
   },
-  "author": "Andrey",
+  "author": "Andrey Schoier",
   "license": "MIT",
   "devDependencies": {
-    "parcel": ">=2.7.0",
-    "sass": ">=1.54.7",
-    "svg-icon-sprite": ">=1.1.1",
-    "svgo": ">=2.8.0"
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0",
+    "parcel-resolver-ignore": "^2.1.3",
+    "process": "^0.11.10",
+    "sass": "^1.54.7",
+    "semistandard": "^16.0.1",
+    "svg-icon-sprite": "^1.1.1",
+    "svgo": "^2.8.0"
+  },
+  "standard": {
+    "ignore": [
+      "wp-ppg-front.js"
+    ]
   },
   "dependencies": {
+    "@juggle/resize-observer": "^3.4.0",
     "core-js": "^3.6.5",
     "fractional": "^1.0.0",
     "regenerator-runtime": "^0.13.7",
