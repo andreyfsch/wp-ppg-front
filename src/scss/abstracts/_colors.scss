@@ -3,8 +3,9 @@
 //============
 
 $primary: #3f565d;
+$teal: #2591b3;
 $blue: #203a43;
-$secondary: #00142D;
+$secondary: #00142d;
 $accent: #e76f51;
 $heading: #212121;
 $text: #2c3e50;
@@ -18,54 +19,79 @@ $darkgrey: #333;
 $darken: 25;
 $lighten: 15;
 
-$colors: (primary: (base: $primary,
-        dark: darken($primary, 5%),
-        light: lighten($primary, $lighten),
-    ),
-    secondary: (base: $secondary,
-        dark: darken($secondary, $darken),
-        light: lighten($secondary, $lighten),
-    ),
-    accent: (base: $accent,
-        dark: darken($accent, $darken),
-        light: lighten($accent, $lighten),
-    ),
-    heading: (base: $heading,
-        dark: darken($heading, $darken),
-        light: lighten($heading, $lighten),
-    ),
-    text: (base: $text,
-        dark: darken($text, $darken),
-        light: lighten($text, $lighten),
-    ),
-    background: (base: $background,
-        dark: darken($background, $darken),
-        light: lighten($background, $lighten),
-    ),
-    success: (base: $success,
-        dark: darken($success, $darken),
-        light: lighten($success, $lighten),
-    ),
-    warning: (base: $warning,
-        dark: darken($warning, $darken),
-        light: lighten($warning, $lighten),
-    ),
-    danger: (base: $danger,
-        dark: darken($danger, $darken),
-        light: lighten($danger, $lighten),
-    ),
-    info: (base: $info,
-        dark: darken($info, $darken),
-        light: lighten($info, $lighten),
-    ),
-    blue-gradient: (dark: darken($blue, 5%),
-        base: $blue,
-        light: lighten($blue, $lighten),
-    ),
-    light-grey: (dark: darken($lightgrey, $darken),
-        base: $lightgrey,
-        light: lighten($lightgrey, $lighten)),
-    dark-grey: (dark: darken($darkgrey, 5%),
-        base: $darkgrey,
-        light: lighten($darkgrey, 5%)),
+$colors: (
+  primary: (
+    base: $primary,
+    dark: darken($primary, 5%),
+    light: lighten($primary, $lighten),
+  ),
+  teal: (
+    base: $teal,
+    dark: darken($teal, $darken),
+    light: lighten($teal, $lighten),
+  ),
+  secondary: (
+    base: $secondary,
+    dark: darken($secondary, $darken),
+    light: lighten($secondary, $lighten),
+  ),
+  accent: (
+    base: $accent,
+    dark: darken($accent, $darken),
+    light: lighten($accent, $lighten),
+  ),
+  heading: (
+    base: $heading,
+    dark: darken($heading, $darken),
+    light: lighten($heading, $lighten),
+  ),
+  text: (
+    base: $text,
+    dark: darken($text, $darken),
+    light: lighten($text, $lighten),
+  ),
+  background: (
+    base: $background,
+    dark: darken($background, $darken),
+    light: lighten($background, $lighten),
+  ),
+  success: (
+    base: $success,
+    dark: darken($success, $darken),
+    light: lighten($success, $lighten),
+  ),
+  warning: (
+    base: $warning,
+    dark: darken($warning, $darken),
+    light: lighten($warning, $lighten),
+  ),
+  danger: (
+    base: $danger,
+    dark: darken($danger, $darken),
+    light: lighten($danger, $lighten),
+  ),
+  info: (
+    base: $info,
+    dark: darken($info, $darken),
+    light: lighten($info, $lighten),
+  ),
+  blue: (
+    dark: darken($blue, $darken),
+    base: $blue,
+  ),
+  blue-gradient: (
+    dark: darken($blue, 5%),
+    base: $blue,
+    light: lighten($blue, $lighten),
+  ),
+  light-grey: (
+    dark: darken($lightgrey, $darken),
+    base: $lightgrey,
+    light: lighten($lightgrey, $lighten),
+  ),
+  dark-grey: (
+    dark: darken($darkgrey, 5%),
+    base: $darkgrey,
+    light: lighten($darkgrey, 5%),
+  ),
 );

@@ -1,16 +1,26 @@
 import View from './view.js';
-import icons from 'url:../../icons/icon-sheet.svg';
+// import icons from 'url:../../icons/icon-sheet.svg';
 
-class PaginationView extends View {
-  constructor () {
+const ABSTRACT_ERROR_MSG = 'Base class must not be instantiated.';
+
+export default class PpgItemView extends View {
+  constructor (model, coords) {
     super();
+    if (this.constructor === PpgItemView) {
+      throw new Error(ABSTRACT_ERROR_MSG);
+    }
+    this._model = model;
+    this._handleCoords(coords);
     this._parentElement = document.querySelector(
       '.ppg-ufrgs-wp-component__listing'
     );
+    this._categoryClassName = 'ppg-ufrgs-wp__badge--';
+    this._categoryColors = this._generateCategoryColors();
+    this._handleCode();
   }
 
   addHandlerClick (handler) {
-    this._parentElement.addEventListener('click', function (e) {
+    this.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--inline');
       if (!btn) return;
 
@@ -19,61 +29,157 @@ class PaginationView extends View {
     });
   }
 
-  _generateMarkup () {
-    const curPage = this._data.page;
-    const numPages = Math.ceil(
-      this._data.results.length / this._data.resultsPerPage
-    );
-
-    // Page 1, and there are other pages
-    if (curPage === 1 && numPages > 1) {
-      return `
-        <button data-goto="${curPage + 1
-        }" class="btn--inline pagination__btn--next">
-          <span>Page ${curPage + 1}</span>
-          <svg class="search__icon">
-            <use href="${icons}#icon-arrow-right"></use>
-          </svg>
-        </button>
-      `;
+  _handleCoords (coords) {
+    if (Array.isArray(coords)) {
+      if (coords.length === 2) {
+        this._pos = `${coords[0]}--${coords[1]}`;
+        this._grid = true;
+        this._xPos = coords[0];
+        this._yPos = coords[1];
+      } else if (coords.length < 2) {
+        this._grid = false;
+        this._pos = coords[0];
+      } else {
+        throw new RangeError('PPG item is either 1 or 2 dimentional.');
+      }
+    } else {
+      throw new TypeError('PPG item requires coordinates to be Array.');
     }
+  }
 
-    // Last page
-    if (curPage === numPages && numPages > 1) {
-      return `
-        <button data-goto="${curPage - 1
-        }" class="btn--inline pagination__btn--prev">
-          <svg class="search__icon">
-            <use href="${icons}#icon-arrow-left"></use>
-          </svg>
-          <span>Page ${curPage - 1}</span>
-        </button>
-      `;
+  _generateCategoryColors () {
+    return {
+      blue: 'blue',
+      red: 'red',
+      gold: 'gold',
+      green: 'green',
+      orange: 'orange',
+      grey: 'grey',
+      teal: 'teal'
+    };
+  }
+
+  _handleCode () {
+    this._classNameCode = 'ppg-ufrgs-wp__content';
+    if (this.hasCode()) {
+      this._code = this._generateCode();
+      this._classNameCode += ' ppg-ufrgs-wp__content--code';
+    } else {
+      this._code = '';
     }
+  }
 
-    // Other page
-    if (curPage < numPages) {
-      return `
-        <button data-goto="${curPage - 1
-        }" class="btn--inline pagination__btn--prev">
-          <svg class="search__icon">
-            <use href="${icons}#icon-arrow-left"></use>
-          </svg>
-          <span>Page ${curPage - 1}</span>
-        </button>
-        <button data-goto="${curPage + 1
-        }" class="btn--inline pagination__btn--next">
-          <span>Page ${curPage + 1}</span>
-          <svg class="search__icon">
-            <use href="${icons}#icon-arrow-right"></use>
-          </svg>
-        </button>
-      `;
-    }
+  _generateDescriptionLabelProp (label, prop) {
+    return `
+      <b
+        class="ppg-ufrgs-wp__description__bold
+          ppg-ufrgs-wp__description__bold--label">
+        ${label}
+      </b>
+      <span
+        class="ppg-ufrgs-wp__description__span
+          ppg-ufrgs-wp__description__span--prop">
+        ${prop}
+      </span>
+    `;
+  }
 
-    // Page 1, and there are NO other pages
-    return '';
+  _generateCode () {
+    return `
+      <h3
+        class="ppg-ufrgs-wp__heading
+        ppg-ufrgs-wp__heading--tertiary
+        ppg-ufrgs-wp__code">
+        ${this.renderCode()}
+      </h3>
+    `;
+  }
+
+  _generateName () {
+    const header = this.hasCode() ? 'h4' : 'h3';
+    return `
+    <${header}
+      class="ppg-ufrgs-wp__heading
+      ppg-ufrgs-wp__heading--quaternary
+      ppg-ufrgs-wp__name">
+      ${this.renderName()}
+    </${header}>
+    `;
+  }
+
+  _generateRadio () {
+    return `
+      <input
+        type="radio"
+        name="ppg-ufrgs-wp__listing-item"
+        id="ppg-ufrgs-wp__listing-item--${this._pos}"
+        class="ppg-ufrgs-wp__rdo" />
+    `;
+  }
+
+  _generateLabel () {
+    return `
+      <label
+        for="ppg-ufrgs-wp__listing-item--${this._pos}"
+        class="ppg-ufrgs-wp__label">
+    `;
+  }
+
+  _generateCategory () {
+    const color = this.renderCategoryColor();
+    const refClassName = this._categoryClassName;
+    const finalClassName = color + refClassName;
+    return `
+      <span
+        class="${finalClassName}">
+        ${this.renderCategory()}
+      </span>
+    `;
+  }
+
+  generateMarkup () {
+    return `
+      <div 
+        class="ppg-ufrgs-wp__listing-item
+          ppg-ufrgs-wp__listing-item--${this._pos}">
+        ${this._generateRadio()}
+        ${this._generateLabel()}
+        <div
+          class="${this._classNameCode}">
+          ${this._generaCategory()}
+          ${this._code}
+          ${this._generateName()}
+          <div
+            class="ppg-ufrgs-wp__description">
+            ${this.renderDescription()}
+          </div>
+        </div>
+        </label>
+      </div>
+    `;
+  }
+
+  _renderCategoryColor () {
+    throw new Error(ABSTRACT_ERROR_MSG);
+  }
+
+  _hasCode () {
+    throw new Error(ABSTRACT_ERROR_MSG);
+  }
+
+  _renderCode () {
+    throw new Error(ABSTRACT_ERROR_MSG);
+  }
+
+  _renderCategory () {
+    throw new Error(ABSTRACT_ERROR_MSG);
+  }
+
+  _renderName () {
+    throw new Error(ABSTRACT_ERROR_MSG);
+  }
+
+  _renderDescription () {
+    throw new Error(ABSTRACT_ERROR_MSG);
   }
 }
-
-export default new PaginationView();

@@ -22,9 +22,9 @@ export const loadPPGData = async function (
       config.API_PROGRAM_PARAM +
       programId +
       config.API_PER_PAGE_PARAM +
-      page +
-      config.API_PER_PAGE_PARAM +
-      perPage
+      perPage +
+      config.API_PAGE_PARAM +
+      page
     );
     const results = [];
     switch (apiOption) {

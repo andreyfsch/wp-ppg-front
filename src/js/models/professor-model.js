@@ -2,8 +2,9 @@ const createAccreditationObject = function (item) {
   return {
     start: item.DataInicioCredenciamento,
     end: item.DataFimCredenciamento,
-    scope: item.VinculoCredenciamento,
-    bond: item.VinculoCredenciamento
+    scope: item.EscopoCredenciamento,
+    bond: item.VinculoCredenciamento,
+    bondId: item.CodTipoVinculoCredenciamento
   };
 };
 

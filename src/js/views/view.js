@@ -23,11 +23,15 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
-  update (data) {
+  update (data, rangeStart = undefined) {
     this._data = data;
     const newMarkup = this._generateMarkup();
 
-    const newDOM = document.createRange().createContextualFragment(newMarkup);
+    const newDOM = document.createRange();
+    if (rangeStart !== undefined) {
+      newDOM.setStartAfter(rangeStart, 0);
+    }
+    newDOM.createContextualFragment(newMarkup);
     const newElements = Array.from(newDOM.querySelectorAll('*'));
     const curElements = Array.from(this._parentElement.querySelectorAll('*'));
 

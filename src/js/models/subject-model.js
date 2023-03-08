@@ -28,6 +28,7 @@ export const createSubjectObject = function (item) {
     objective: item.Objetivo,
     modality: item.DenominacaoModalidadeEnsino,
     level: item.NomeNivelCursoPG,
+    levelAcronym: item.SiglaNivelCursoPG,
     programId: item.IdentificadorPrograma,
     program: item.item,
     classes: [...item.Professores].map(createClassObject),
