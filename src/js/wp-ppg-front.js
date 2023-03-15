@@ -10,7 +10,7 @@ window.ResizeObserver = ResizeObserver;
 
 init();
 
-const data = loadPPGData('PROFESSORS');
+const data = loadPPGData('RESEARCHES');
 
 data.then(console.log(state));
 

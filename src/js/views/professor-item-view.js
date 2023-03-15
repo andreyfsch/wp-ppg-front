@@ -1,6 +1,6 @@
 import PpgItemView from './ppg-item-view.js';
 
-export class ProfessorItemView extends PpgItemView {
+export default class ProfessorItemView extends PpgItemView {
   constructor (professorModel, coords) {
     super(professorModel, coords);
     this._categoryColorKeys = {

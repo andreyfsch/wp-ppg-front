@@ -6,7 +6,7 @@
     "generate:sprite": "svg-icon-sprite --folder=src/icons/svg --output=src/icons/icon-sheet.svg",
     "optimize:svg": "svgo -f src/icons/svg -o src/icons/svg",
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --no-source-maps",
     "test": "semistandard",
     "fix": "semistandard --fix"
   },

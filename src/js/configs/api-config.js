@@ -6,15 +6,16 @@ let codOrgao;
 if (LOCAL) {
   apiUrl =
     'https://desenvolvimento.dsi/HomeSVN/andrey/dsi-ens-api/api/web/v2/pos-graduacao';
+  apiUrl = 'https://api.dev.ufrgs.br/v2/pos-graduacao';
   codOrgao = 420;
 } else {
-  apiUrl = 'https://ufrgs.br/api/v2/pos-graduacao';
+  apiUrl = 'https://api.ufrgs.br/v2/pos-graduacao';
   codOrgao = undefined;
 }
 
 export const API_URL = apiUrl;
 export const API_OPTIONS = {
-  RESEARCHES: 'pesquisa',
+  RESEARCHES: '/pesquisa',
   SUBJECTS: '/disciplinas',
   THESES: '/teses',
   PROFESSORS: '/docentes',
