@@ -14,8 +14,7 @@ export default class PpgItemView extends View {
     this._parentElement = document.querySelector(
       '.ppg-ufrgs-wp-component__listing'
     );
-    this._categoryClassName = 'ppg-ufrgs-wp__badge--';
-    this._categoryColors = this._generateCategoryColors();
+    this._categoryClassName = 'ppg-ufrgs-wp__badge';
     this._handleCode();
   }
 
@@ -47,21 +46,9 @@ export default class PpgItemView extends View {
     }
   }
 
-  _generateCategoryColors () {
-    return {
-      blue: 'blue',
-      red: 'red',
-      gold: 'gold',
-      green: 'green',
-      orange: 'orange',
-      grey: 'grey',
-      teal: 'teal'
-    };
-  }
-
   _handleCode () {
     this._classNameCode = 'ppg-ufrgs-wp__content';
-    if (this.hasCode()) {
+    if (this._hasCode()) {
       this._code = this._generateCode();
       this._classNameCode += ' ppg-ufrgs-wp__content--code';
     } else {
@@ -90,19 +77,19 @@ export default class PpgItemView extends View {
         class="ppg-ufrgs-wp__heading
         ppg-ufrgs-wp__heading--tertiary
         ppg-ufrgs-wp__code">
-        ${this.renderCode()}
+        ${this._renderCode()}
       </h3>
     `;
   }
 
   _generateName () {
-    const header = this.hasCode() ? 'h4' : 'h3';
+    const header = this._hasCode() ? 'h4' : 'h3';
     return `
     <${header}
       class="ppg-ufrgs-wp__heading
       ppg-ufrgs-wp__heading--quaternary
       ppg-ufrgs-wp__name">
-      ${this.renderName()}
+      ${this._renderName()}
     </${header}>
     `;
   }
@@ -126,18 +113,18 @@ export default class PpgItemView extends View {
   }
 
   _generateCategory () {
-    const color = this.renderCategoryColor();
+    const color = this._renderCategoryColor();
     const refClassName = this._categoryClassName;
-    const finalClassName = color + refClassName;
+    const finalClassName = refClassName + ' ' + refClassName + '--' + color;
     return `
       <span
         class="${finalClassName}">
-        ${this.renderCategory()}
+        ${this._renderCategory()}
       </span>
     `;
   }
 
-  generateMarkup () {
+  _generateMarkup () {
     return `
       <div 
         class="ppg-ufrgs-wp__listing-item
@@ -146,12 +133,12 @@ export default class PpgItemView extends View {
         ${this._generateLabel()}
         <div
           class="${this._classNameCode}">
-          ${this._generaCategory()}
+          ${this._generateCategory()}
           ${this._code}
           ${this._generateName()}
           <div
             class="ppg-ufrgs-wp__description">
-            ${this.renderDescription()}
+            ${this._renderDescription()}
           </div>
         </div>
         </label>

@@ -1,13 +1,15 @@
 import PpgItemView from './ppg-item-view.js';
+import configs from '../configs/index.js';
+const { CATEGORY_COLORS } = configs;
 
 export default class ProfessorItemView extends PpgItemView {
   constructor (professorModel, coords) {
     super(professorModel, coords);
     this._categoryColorKeys = {
-      1: this._categoryColors.blue,
-      2: this._categoryColors.gold,
-      3: this._categoryColors.orange,
-      4: this._categoryColors.green
+      1: CATEGORY_COLORS.blue,
+      2: CATEGORY_COLORS.gold,
+      3: CATEGORY_COLORS.orange,
+      4: CATEGORY_COLORS.green
     };
   }
 
@@ -35,7 +37,7 @@ export default class ProfessorItemView extends PpgItemView {
   }
 
   _renderName () {
-    return this._model.accreditation.name;
+    return this._model.name;
   }
 
   _renderDescription () {

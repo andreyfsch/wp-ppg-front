@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "WordPress plugin for PPG UFRFGS",
   "scripts": {
-    "generate:sprite": "svg-icon-sprite --folder=src/icons/svg --output=src/icons/icon-sheet.svg",
+    "generate:sprite": "svg-icon-generate --folder=src/icons/svg --output=src/icons/icon-sheet.svg",
     "optimize:svg": "svgo -f src/icons/svg -o src/icons/svg",
     "start": "parcel index.html",
     "build": "parcel build index.html --no-source-maps",

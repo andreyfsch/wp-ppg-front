@@ -3,8 +3,8 @@
 //============
 
 $primary: #3f565d;
-$teal: #2591b3;
-$blue: #203a43;
+$cteal: #2591b3;
+$cblue: #203a43;
 $secondary: #00142d;
 $accent: #e76f51;
 $heading: #212121;
@@ -25,10 +25,10 @@ $colors: (
     dark: darken($primary, 5%),
     light: lighten($primary, $lighten),
   ),
-  teal: (
-    base: $teal,
-    dark: darken($teal, $darken),
-    light: lighten($teal, $lighten),
+  cteal: (
+    base: $cteal,
+    dark: darken($cteal, $darken),
+    light: lighten($cteal, $lighten),
   ),
   secondary: (
     base: $secondary,
@@ -75,14 +75,14 @@ $colors: (
     dark: darken($info, $darken),
     light: lighten($info, $lighten),
   ),
-  blue: (
-    dark: darken($blue, $darken),
-    base: $blue,
+  cblue: (
+    dark: darken($cblue, $darken),
+    base: $cblue,
   ),
   blue-gradient: (
-    dark: darken($blue, 5%),
-    base: $blue,
-    light: lighten($blue, $lighten),
+    dark: darken($cblue, 5%),
+    base: $cblue,
+    light: lighten($cblue, $lighten),
   ),
   light-grey: (
     dark: darken($lightgrey, $darken),

@@ -10,11 +10,7 @@ export default class View {
    * @author Jonas Schmedtmann
    * @todo Finish implementation
    */
-  render (data, render = true) {
-    if (!data || (Array.isArray(data) && data.length === 0)) {
-      return this.renderError();
-    }
-    this._data = data;
+  render (render = true) {
     const markup = this._generateMarkup();
 
     if (!render) return markup;
@@ -23,8 +19,13 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
-  update (data, rangeStart = undefined) {
-    this._data = data;
+  append () {
+    const markup = this._generateMarkup();
+
+    this._parentElement.insertAdjacentHTML('beforeend', markup);
+  }
+
+  update (rangeStart = undefined) {
     const newMarkup = this._generateMarkup();
 
     const newDOM = document.createRange();
@@ -85,7 +86,7 @@ export default class View {
       <div class="error">
         <div>
           <svg>
-            <use href="${icons}#icon-alert-triangle"></use>
+            <use href="${icons}#alert-triangle"></use>
           </svg>
         </div>
         <p>${message}</p>

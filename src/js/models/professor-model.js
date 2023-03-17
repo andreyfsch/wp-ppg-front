@@ -11,7 +11,6 @@ const createAccreditationObject = function (item) {
 export const createProfessorObject = function (item) {
   return {
     name: item.NomePessoa,
-    email: item.EMail,
     degree: item.Grau,
     programId: item.IdentificadorPrograma,
     program: item.NomeOrgao,

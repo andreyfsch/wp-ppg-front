@@ -1,22 +1,24 @@
 import PpgItemView from './ppg-item-view.js';
+import configs from '../configs/index.js';
+const { CATEGORY_COLORS } = configs;
 
 export class SubjectItemView extends PpgItemView {
   constructor (subjectModel) {
     super();
     this._model = subjectModel;
     this._categoryColorKeys = {
-      D: this._categoryColors.blue,
-      MA: this._categoryColorKeys.red,
-      MP: this._categoryColors.gold,
-      E: this._categoryColors.green,
-      A: this._categoryColors.grey,
-      PD: this._categoryColors.orange,
-      R: this._categoryColorKeys.teal
+      D: CATEGORY_COLORS.blue,
+      MA: CATEGORY_COLORS.red,
+      MP: CATEGORY_COLORS.gold,
+      E: CATEGORY_COLORS.green,
+      A: CATEGORY_COLORS.grey,
+      PD: CATEGORY_COLORS.orange,
+      R: CATEGORY_COLORS.teal
     };
   }
 
   renderCategoryColor () {
-    return this._categoryColors[this._model.levelAcronym];
+    return CATEGORY_COLORS[this._model.levelAcronym];
   }
 
   hasCode () {
